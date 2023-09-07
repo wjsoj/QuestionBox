@@ -13,8 +13,8 @@ onUnmounted(() => {
 
 let markdown = `
 <center><h1> QuestionBox </h1></center>
-<center> <strong> 基于Vue的新一代提问箱 </strong></center>
-<center><strong> 轻量，优雅，有点好看 </strong></center>
+<center>  基于Vue的新一代提问箱 </center>
+<center> 轻量，优雅，有点好看 </center>
 <h2 id='本地开发'>本地开发</h2>
 <pre><code class='language-shell' lang='shell'>npm install
 npm run dev
