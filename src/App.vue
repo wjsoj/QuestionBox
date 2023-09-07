@@ -15,7 +15,7 @@ if ((!'theme' in localStorage && window.matchMedia('(prefers-color-scheme: dark)
   localStorage.theme = 'light'
 }
 
-let isDark = (localStorage.theme == 'dark') ? ref(true) : ref(false)
+let isDark = (localStorage.theme === 'dark') ? ref(true) : ref(false)
 
 function changeTheme() {
   if (localStorage.theme === 'dark') {
