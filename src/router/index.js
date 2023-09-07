@@ -256,7 +256,13 @@ const router = createRouter({
       name: 'doc',
       component: () => import('../components/doc.vue')
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { top: 0, left: 0 }
+  }
 })
 
 router.beforeEach((to, from, next) => {

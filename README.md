@@ -1,5 +1,5 @@
 <p align="center">
-  
+
   <h1 align="center"> QuestionBox </h1>
 
   <p align="center">
@@ -61,4 +61,4 @@ VITE_APP_TITLE = "XXX的提问箱"
 }
 ```
 
-如果你需要部署此项目在自己的服务器上，请不要忘了根据实际情况重写路由规则
+如果你需要部署此项目在自己的服务器上，请不要忘了根据实际情况重写路由规则，具体可以参考vue-router的[官方说明页](https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B)

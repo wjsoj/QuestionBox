@@ -67,7 +67,7 @@ window.addEventListener('click', function (e) {
           d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm1 5a1 1 0 100 2h12a1 1 0 100-2H4z"
           clip-rule="evenodd" />
       </svg>
-      <div v-if="isOpen" class="transition ease-in-out text-white absolute top-16 right-5 min-w-[120px] bg-slate-500 dark:bg-slate-900 rounded-md shadow-md flex flex-col justify-center items-center z-[10] py-2 bg-opacity-70 dark:bg-opacity-40 backdrop-blur-sm">
+      <div v-if="isOpen" class="text-white absolute top-16 right-5 min-w-[120px] bg-slate-500 dark:bg-slate-900 rounded-md shadow-md flex flex-col justify-center items-center z-[10] py-2 bg-opacity-70 dark:bg-opacity-40 backdrop-blur-sm">
         <span class="text-base my-1" @click="isOpen = !isOpen">深色模式</span>
         <n-switch v-model:value="isDark" @click="changeTheme()"/>
         <div class="w-3/4 h-0.5 bg-slate-300 dark:bg-slate-700 my-1"></div>
