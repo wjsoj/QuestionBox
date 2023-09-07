@@ -1,21 +1,27 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { NSwitch,NLoadingBarProvider,NConfigProvider,darkTheme,NDialogProvider,NMessageProvider,NButton } from 'naive-ui'
-import { ref,onMounted } from 'vue'
+import { ref,onMounted,onUpdated, provide } from 'vue'
 import footerVue from './components/footerVue.vue'
 
 let title = import.meta.env.VITE_APP_TITLE
 let isOpen = ref(false)
 let theme = localStorage.theme==='dark' ? ref(darkTheme) : ref(undefined)
+let isDark = ref(false)
 
 if ((!'theme' in localStorage && window.matchMedia('(prefers-color-scheme: dark)').matches) || localStorage.theme === 'dark') {
   localStorage.theme = 'dark'
   document.documentElement.classList.add('dark')
+  isDark.value = true
 } else {
   localStorage.theme = 'light'
+  isDark.value = false
 }
 
-let isDark = (localStorage.theme === 'dark') ? ref(true) : ref(false)
+console.log(isDark.value)
+console.log(localStorage.theme)
+console.log(theme.value)
+provide('isDark', isDark)
 
 function changeTheme() {
   if (localStorage.theme === 'dark') {

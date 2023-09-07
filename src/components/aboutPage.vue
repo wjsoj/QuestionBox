@@ -1,10 +1,12 @@
 <script setup>
-import { onMounted,onUnmounted } from 'vue'
+import { inject, onMounted,onUnmounted } from 'vue'
 import hero from './hero.vue'
 import leftSection from './leftSection.vue'
 import rightSection from './rightSection.vue'
 import featureCard from './featureCard.vue'
 import userImg from '../assets/user.png'
+
+let isDark = inject('isDark')
 
 const desc = [
   '在提问界面，你可以选择输入昵称或使用默认名称Annonymous，你输入的昵称将会出现在问题的页面上，具体输入什么完全由你自己决定',
@@ -49,11 +51,12 @@ function defaultTheme() {
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     localStorage.theme = 'dark'
     document.documentElement.classList.add('dark')
+    isDark.value = true
   } else {
     localStorage.theme = 'light'
     document.documentElement.classList.remove('dark')
+    isDark.value = false
   }
-  window.location.reload()
 }
 
 onMounted(() => {
