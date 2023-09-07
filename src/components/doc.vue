@@ -51,7 +51,7 @@ VITE_APP_TITLE = &quot;XXX的提问箱&quot;
 
 <template>
 <div class="relative w-full px-6 py-12 bg-slate-100 dark:bg-slate-800  md:max-w-3xl md:mx-auto lg:max-w-4xl lg:pt-16 lg:pb-28">
-  <div class="mt-20 lg:mt-30 prose md:prose-lg lg:prose-xl dark:prose-invert" v-html="markdown">
+  <div class="mt-20 lg:mt-30 prose prose-stone md:prose-lg lg:prose-xl dark:prose-invert" v-html="markdown">
   </div>
 </div>
 
