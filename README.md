@@ -1,8 +1,12 @@
-<center><h1> QuestionBox </h1></center>
+<p align="center">
+  
+  <h1> QuestionBox </h1>
 
-<center> <strong> 基于Vue的新一代提问箱 </strong></center>
+  基于Vue的新一代提问箱
+  </br>
+  轻量，优雅，有点好看
 
-<center><strong> 轻量，优雅，有点好看 </strong></center>
+</p>
 
 ## 本地开发
 
