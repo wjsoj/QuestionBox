@@ -40,14 +40,10 @@ async function initialize() {
   await question.save().then().catch((err) => {
     console.log(err.code)
   })
-  const query = new AV.Query('Question')
-  await query.find().then((questions) => {
-    questions.forEach((question) => {
-      question.destroy()
-    })
-  }).catch((err) => {
+  await question.destroy().then().catch((err) => {
     console.log(err.code)
   })
+  window.location.reload()
 }
 
 async function loadMore() {
@@ -59,9 +55,6 @@ async function loadMore() {
   query.descending("createdAt")
   const Question = await query.find().catch((err) => {
     console.log(err.code)
-    if(err.code === 101) {
-      initialize()
-    }
   })
   loadingBar.finish()
   concatLoading.value = false
@@ -81,21 +74,21 @@ async function getQuestions() {
   })
   query.limit(10)
   query.descending("createdAt")
-  const Question = await query.find().catch((err) => {
+  await query.find()
+  .then((Question) => {
+    loadingBar.finish()
+    isLoading.value = false
+    footer.classList.remove('fixed', 'bottom-0', 'left-0', 'right-0')
+    questions.value = Question
+  })
+  .catch((err) => {
     console.log(err.code)
     if(err.code === 101) {
       message.info('初始化...')
       initialize()
-      loadingBar.finish()
-      isLoading.value = false
-      questions.value = []
       return
     }
   })
-  loadingBar.finish()
-  isLoading.value = false
-  footer.classList.remove('fixed', 'bottom-0', 'left-0', 'right-0')
-  questions.value = Question
 }
 
 async function submit(questionText,name) {
@@ -180,7 +173,7 @@ onUpdated(() => {
     <button @click="askStatus=true" class="px-4 py-2 text-lg font-semibold text-white bg-teal-700 rounded-xl md:text-xl">添加问题</button>
   </div>
 
-  <div class="flex lg:grid lg:grid-cols-2 lg:gap-8 flex-col justify-center items-stretch my-6 divide-y-2 divide-slate-300 dark:divide-slate-700 px-4 md:px-20 lg:px-32 lg:my-12">
+  <div class="flex lg:grid lg:grid-cols-2 lg:gap-8 flex-col justify-center items-stretch my-6 divide-y-2 lg:divide-y-0 divide-slate-300 dark:divide-slate-700 px-4 md:px-20 lg:px-32 lg:my-12">
     <div v-if="questions.length" v-for="question in questions" :key="question.id">
       <div v-if="question.get('content')" class="mx-4 px-2 my-4 py-3 rounded-xl min-h-[10rem] lg:min-h-[14rem] flex flex-col justify-between items-stretch">
         <div>
@@ -204,6 +197,9 @@ onUpdated(() => {
         </div>
         
       </div>
+
+      <!-- 分割线 -->
+      <div class="hidden lg:block w-full h-0.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-4"></div>
     </div>
   </div>
 
