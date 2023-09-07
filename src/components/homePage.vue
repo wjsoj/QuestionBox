@@ -175,6 +175,21 @@ function navBarListener() {
   }
 }
 
+// 识别文本中的表情字符，对其应用独立的样式
+function processText(text) {
+  // 匹配表情字符的正则表达式
+  let emojiReg = /[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF][\u200D|\uFE0F]|[\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF]|[0-9|*|#]\uFE0F\u20E3|[0-9|#]\u20E3|[\u203C-\u3299]\uFE0F\u200D|[\u203C-\u3299]\uFE0F|[\u2122-\u2B55]|\u303D|[\A9|\AE]\u3030|\uA9|\uAE|\u3030/gi
+  let emojiList = text.match(emojiReg)
+  if (emojiList) {
+    console.log(emojiList)
+    emojiList.forEach((emoji) => {
+      text = text.replace(emoji, `<span class="text-white">${emoji}</span>`)
+    })
+  }
+  // console.log(text)
+  return text
+}
+
 onMounted(() => {
   window.addEventListener('scroll', navBarListener)
 })
@@ -198,8 +213,7 @@ onUnmounted(() => {
     <div v-if="questions.length" v-for="question in questions" :key="question.id">
       <div v-if="question.get('content')" class="mx-4 px-2 my-4 py-3 rounded-xl min-h-[10rem] lg:min-h-[14rem] flex flex-col justify-between items-stretch">
         <div>
-          <p class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-indigo-500 dark:from-cyan-300 dark:to-indigo-500 mb-3 md:text-2xl">
-            {{ question.get('content') }}
+          <p class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-indigo-500 dark:from-cyan-300 dark:to-indigo-500 mb-3 md:text-2xl" v-html="processText(question.get('content'))">
           </p>
           <p v-if="question.get('answer')" class="text-black dark:text-white text-base md:text-lg">
             <n-ellipsis class="text-black dark:text-white" expand-trigger="click" :tooltip="false" line-clamp="5">
