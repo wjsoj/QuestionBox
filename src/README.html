@@ -1,18 +1,10 @@
-<script setup>
-import { onMounted,onUnmounted } from 'vue'
-onMounted(() => {
-  let nav = document.querySelector('nav')
-  nav.classList.remove('text-slate-200')
-  nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'z-[10]', 'backdrop-blur-sm','text-slate-600')
-})
-onUnmounted(() => {
-  let nav = document.querySelector('nav')
-  nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'z-[10]', 'backdrop-blur-sm','text-slate-600')
-  nav.classList.add('text-slate-200')
-})
-
-let markdown = `
-<center><h1> QuestionBox </h1></center>
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>README</title>
+</head>
+<body><center><h1> QuestionBox </h1></center>
 <center> <strong> 基于Vue的新一代提问箱 </strong></center>
 <center><strong> 轻量，优雅，有点好看 </strong></center>
 <h2 id='本地开发'>本地开发</h2>
@@ -45,14 +37,5 @@ VITE_APP_TITLE = &quot;XXX的提问箱&quot;
 }
 </code></pre>
 <p>如果你需要部署此项目在自己的服务器上，请不要忘了根据实际情况重写路由规则</p>
-`
-
-</script>
-
-<template>
-<div class="relative w-full px-6 py-12 bg-slate-100 dark:bg-slate-800  md:max-w-3xl md:mx-auto lg:max-w-4xl lg:pt-16 lg:pb-28">
-  <div class="mt-20 lg:mt-30 prose md:prose-lg lg:prose-xl dark:prose-invert" v-html="markdown">
-  </div>
-</div>
-
-</template>
+</body>
+</html>
