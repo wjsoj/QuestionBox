@@ -3,8 +3,8 @@ let data = defineProps(['title1','title2','description'])
 </script>
 
 <template>
-<div class="flex flex-col lg:flex-row justify-center items-center lg:mx-20 lg:my-20">
-  <div class="flex-1 flex flex-col justify-center items-center lg:items-start my-4">
+<div class="flex flex-col lg:flex-row justify-center items-center lg:mx-20 lg:my-20 xl:mx-28">
+  <div class="flex-1 flex flex-col justify-center items-center lg:items-start my-4 xl:mr-4">
     <h1 class="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 mx-6 lg:mx-8 my-2">
       {{ data.title1 }}
       <br>

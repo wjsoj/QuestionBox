@@ -10,7 +10,7 @@ function goGithub() {
 </script>
 
 <template>
-<div class="flex lg:flex-row flex-col justify-center items-center lg:justify-stretch md:mx-10 lg:mx-28 my-16 md:pt-20">
+<div class="flex lg:flex-row flex-col justify-center items-center lg:justify-stretch md:mx-10 lg:mx-28 xl:mx-36 my-16 md:pt-20">
   <div class="flex-1 mx-6 my-6">
     <div class="flex flex-col">
       <div class="rounded-xl bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-600 dark:to-slate-700 px-4 py-2 my-8 lg:max-w-[460px]">

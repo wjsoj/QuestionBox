@@ -1,6 +1,6 @@
 <script setup>
 import AV from 'leancloud-storage'
-import { ref,onUpdated } from 'vue'
+import { ref,onUpdated,onMounted,onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLoadingBar,NSpin,NEllipsis,useMessage } from 'naive-ui';
 import Banner from './banner.vue'
@@ -160,6 +160,27 @@ onUpdated(() => {
   if (document.body.clientHeight < window.innerHeight) {
     footer.classList.add('fixed', 'bottom-0', 'left-0', 'right-0')
   }
+})
+
+function navBarListener() {
+  let nav = document.querySelector('nav')
+  let navOffsetTop = nav.offsetTop
+  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+  if (scrollTop > navOffsetTop) {
+    nav.classList.remove('text-slate-200')
+    nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'z-[10]', 'backdrop-blur-sm','text-slate-600')
+  } else {
+    nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'z-[10]', 'backdrop-blur-sm','text-slate-600')
+    nav.classList.add('text-slate-200')
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', navBarListener)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', navBarListener)
 })
 </script>
 

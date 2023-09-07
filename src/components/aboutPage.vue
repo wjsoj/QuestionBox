@@ -153,7 +153,7 @@ onUnmounted(() => {
 </rightSection>
 
 <div class="my-8 md:my-10 lg:my-12 flex flex-col justify-center items-center">
-  <div class="md:w-full flex flex-col lg:flex-row justify-center md:justify-between items-center lg:px-28 my-4 lg:my-10">
+  <div class="md:w-full flex flex-col lg:flex-row justify-center md:justify-between items-center lg:px-28 my-4 lg:my-10 xl:px-36">
     <h1 class="text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 my-2">
       使用到的技术
     </h1>
@@ -162,7 +162,7 @@ onUnmounted(() => {
       本项目的诞生离不开下列众多功能强大的项目，在此列出以表示感谢。
     </p>
   </div>
-  <div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-8 md:px-16 lg:px-20 md:gap-2 divide-y-2 md:divide-y-0 divide-slate-700 dark:divide-slate-300">
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 px-8 md:px-16 lg:px-20 xl:px-28 2xl:px-32 md:gap-2 divide-y-2 md:divide-y-0 divide-slate-700 dark:divide-slate-300">
     <div v-for="item in feature" :key="item.title" class="my-4">
       <featureCard :title="item.title" :description="item.description" :link="item.link" />
     </div>

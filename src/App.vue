@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { NSwitch,NLoadingBarProvider,NConfigProvider,darkTheme,NDialogProvider,NMessageProvider,NButton } from 'naive-ui'
-import { ref,onMounted,onUpdated, provide } from 'vue'
+import { ref,provide } from 'vue'
 import footerVue from './components/footerVue.vue'
 
 let title = import.meta.env.VITE_APP_TITLE
@@ -34,25 +34,6 @@ function changeTheme() {
     theme.value = darkTheme
   }
 }
-
-onMounted(() => {
-  // 如果当前不是关于页面
-  if (window.location.pathname !== '/about' && window.location.pathname !== '/doc') {
-    // 检测屏幕滚动，将导航栏固定在顶部
-    window.addEventListener('scroll', function () {
-      let nav = document.querySelector('nav')
-      let navOffsetTop = nav.offsetTop
-      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop > navOffsetTop) {
-        nav.classList.remove('text-slate-200')
-        nav.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'z-[10]', 'backdrop-blur-sm','text-slate-600')
-      } else {
-        nav.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'z-[10]', 'backdrop-blur-sm','text-slate-600')
-        nav.classList.add('text-slate-200')
-      }
-    })
-  }
-})
 
 // isOpen为true时，点击其他地方关闭
 window.addEventListener('click', function (e) {

@@ -3,7 +3,7 @@ import { Github,Heart } from '@vicons/fa'
 </script>
 
 <template>
-<footer class="flex flex-row justify-between items-center bg-slate-300 dark:bg-slate-900 py-4 px-6 md:px-16 lg:px-24">
+<footer class="flex flex-row justify-between items-center bg-slate-300 dark:bg-slate-900 py-4 px-6 md:px-16 lg:px-24 xl:px-32">
   <div class="text-slate-900 dark:text-white lg:text-base">
     Copyright 2023 By <a href="https://github.com/wjsoj" target="_blank" rel="noopener noreferrer"> <span class="text-transparent font-bold bg-clip-text bg-gradient-to-r from-teal-600 to-indigo-400">WJS</span> </a>
     <br>
