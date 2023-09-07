@@ -3,11 +3,9 @@
   <h1 align="center"> QuestionBox </h1>
 
   <p align="center">
-  
     基于Vue的新一代提问箱
     <br />
     轻量，优雅，有点好看
-  
   </p>
 
 </p>
